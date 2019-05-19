@@ -30,7 +30,7 @@ public class CreateParkingLot extends ParkingLotConfigService {
 			}
 			places_left = placesInGarrage;
 			size_alloted = parkingLotSpace;
-			LOGGER.info("Created a parking lot with " + parkingLotSpace + " slots");
+			System.out.println("Created a parking lot with "+parkingLotSpace+" slots");
 
 		} catch (Exception e) {
 			LOGGER.error(e.getMessage(), e);

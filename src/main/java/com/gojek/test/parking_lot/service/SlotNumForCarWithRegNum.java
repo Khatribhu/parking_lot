@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.gojek.test.parking_lot.Exception.InternalServerException;
+import com.gojek.test.parking_lot.Exception.NotFoundException;
 import com.gojek.test.parking_lot.InputProcesser.InputParserImpl;
 import com.gojek.test.parking_lot.InputProcesser.ParkingLotConfigService;
 import com.gojek.test.parking_lot.models.Car;
@@ -25,27 +26,34 @@ public class SlotNumForCarWithRegNum extends ParkingLotConfigService {
 	@Override
 	public void executeCommand(String[] commandArray) throws InternalServerException {
 		try {
-			Validator.validParkingLot(parking_lot);
-			boolean flag = false;
-			String registrationNumber = commandArray[1];
-			Collection<Car> allCars = parking_lot.values();
-			List<String> slotNum = new ArrayList<>();
-			for (Car car : allCars) {
-				if (car.getRegistrationNumber().equals(registrationNumber)) {
-					for (Entry<Integer, Car> entry : parking_lot.entrySet()) {
-						if (entry.getValue().equals(car)) {
-							flag = true;
-							String key = entry.getKey().toString();
-							slotNum.add(key);
+			if (!parking_lot.isEmpty() || parking_lot != null) {
+				boolean flag = false;
+				String registrationNumber = commandArray[1];
+				Collection<Car> allCars = parking_lot.values();
+				List<String> slotNum = new ArrayList<>();
+				for (Car car : allCars) {
+					if (car.getRegistrationNumber().equals(registrationNumber)) {
+						for (Entry<Integer, Car> entry : parking_lot.entrySet()) {
+							if (entry.getValue().equals(car)) {
+								flag = true;
+								String key = entry.getKey().toString();
+								slotNum.add(key);
+							}
 						}
 					}
 				}
-			}
-			if (flag == false) {
-				LOGGER.info("Not found");
+				if (flag == false) {
+					LOGGER.info("Not found");
+					System.out.print("Not found");
+				} else {
+					LOGGER.info(String.join(",", slotNum));
+					System.out.println(String.join(",", slotNum));
+				}
 			} else {
-				LOGGER.info(String.join(",", slotNum));
+				LOGGER.error("Parking Lot Not Found. Create one first");
+				throw new NotFoundException("Parking Lot Not Found. Create one first");
 			}
+
 		} catch (Exception e) {
 			LOGGER.info(e.getMessage(), e);
 			throw new InternalServerException(e.getMessage(), e);

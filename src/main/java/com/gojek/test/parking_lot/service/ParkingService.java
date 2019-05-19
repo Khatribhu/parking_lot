@@ -22,20 +22,23 @@ public class ParkingService extends ParkingLotConfigService {
 	@Override
 	public void executeCommand(String[] commandArray) throws InternalServerException {
 		try {
-			
-			Validator.validParkingLot(parking_lot);
-			Validator.validCommandArrayForCar(commandArray);
-			Car car = new Car(commandArray[1], commandArray[2]);
-			List<Integer> totalPlacesLeft = places_left;
-			if (totalPlacesLeft.isEmpty()) {
-				LOGGER.info(PARKING_FULL);
-			} else {
-				Integer parkingSlot = totalPlacesLeft.get(0);
-				if (totalPlacesLeft.size() <= size_alloted) {
-					parking_lot.put(parkingSlot, car);
+			if (!parking_lot.isEmpty() || parking_lot != null || size_alloted != 0) {
+				Car car = new Car(commandArray[1], commandArray[2]);
+				List<Integer> totalPlacesLeft = places_left;
+				if (totalPlacesLeft.isEmpty()) {
+					LOGGER.info(PARKING_FULL);
+					System.out.println("Sorry, parking lot is full");
+				} else {
+					Integer parkingSlot = totalPlacesLeft.get(0);
+					if (totalPlacesLeft.size() <= size_alloted) {
+						parking_lot.put(parkingSlot, car);
+					}
+					LOGGER.info("Allocated slot number:" + parkingSlot);
+					System.out.println("Allocated slot number:"+ parkingSlot);
+					totalPlacesLeft.remove(0);
 				}
-				LOGGER.info("Allocated slot number:" + parkingSlot);
-				totalPlacesLeft.remove(0);
+			} else {
+
 			}
 
 		} catch (Exception e) {

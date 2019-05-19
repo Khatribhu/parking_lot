@@ -1,8 +1,8 @@
 package com.gojek.test.parking_lot.InputProcesser;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 import com.gojek.test.parking_lot.Exception.InternalServerException;
 import com.gojek.test.parking_lot.models.Car;
@@ -16,7 +16,7 @@ public abstract class ParkingLotConfigService {
 
 	public static List<Integer> places_left;
 	public static int size_alloted;
-	public static Map<Integer, Car> parking_lot = new ConcurrentHashMap<>();
+	public static Map<Integer, Car> parking_lot = new HashMap<>();
 
 	/**
 	 * Processing command over the parking lot.

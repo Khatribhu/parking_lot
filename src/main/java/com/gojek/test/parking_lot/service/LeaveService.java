@@ -21,15 +21,17 @@ public class LeaveService extends ParkingLotConfigService {
 	@Override
 	public void executeCommand(String[] commandArray) throws InternalServerException {
 		try {
-			Validator.validParkingLot(parking_lot);
-			Validator.validCommandArray(commandArray);
-			Integer parkingLotSpaceNumber = Integer.parseInt(commandArray[1]);
-			parking_lot.remove(parkingLotSpaceNumber);
-			LOGGER.info("Slot number " + parkingLotSpaceNumber + " is free");
-			List<Integer> placesLeft = places_left;
-			placesLeft.add(parkingLotSpaceNumber);
-			Collections.sort(placesLeft);
-			places_left = placesLeft;
+			if (!parking_lot.isEmpty() || parking_lot != null) {
+				Validator.validCommandArray(commandArray);
+				Integer parkingLotSpaceNumber = Integer.parseInt(commandArray[1]);
+				parking_lot.remove(parkingLotSpaceNumber);
+				LOGGER.info("Slot number " + parkingLotSpaceNumber + " is free");
+				System.out.println("Slot number "+parkingLotSpaceNumber+" is free");
+				List<Integer> placesLeft = places_left;
+				placesLeft.add(parkingLotSpaceNumber);
+				Collections.sort(placesLeft);
+				places_left = placesLeft;
+			}
 
 		} catch (Exception e) {
 			LOGGER.info(e.getMessage(), e);

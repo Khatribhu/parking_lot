@@ -1,14 +1,17 @@
 package com.gojek.test.parking_lot.parking_config_factory;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.gojek.test.parking_lot.Exception.NotFoundException;
 import com.gojek.test.parking_lot.InputProcesser.ParkingLotConfigService;
 import com.gojek.test.parking_lot.service.CreateParkingLot;
 import com.gojek.test.parking_lot.service.LeaveService;
+import com.gojek.test.parking_lot.service.LotStatusService;
 import com.gojek.test.parking_lot.service.ParkingService;
 import com.gojek.test.parking_lot.service.RegNumForCarWithColours;
 import com.gojek.test.parking_lot.service.SlotNumForCarWithColours;
 import com.gojek.test.parking_lot.service.SlotNumForCarWithRegNum;
-import com.gojek.test.parking_lot.service.LotStatusService;
 
 /**
  * 
@@ -16,6 +19,8 @@ import com.gojek.test.parking_lot.service.LotStatusService;
  *
  */
 public class ServiceFactory {
+
+	private static Logger LOGGER = LoggerFactory.getLogger(ServiceFactory.class);
 
 	private static final String CREATE_PARKING_LOT = "create_parking_lot";
 	private static final String PARKING_SERVICE = "park";
@@ -28,22 +33,22 @@ public class ServiceFactory {
 
 	public static ParkingLotConfigService getService(String inputCommand) throws NotFoundException {
 
-		switch (inputCommand) {
-		case CREATE_PARKING_LOT:
+		if (inputCommand.contains(CREATE_PARKING_LOT)) {
 			return new CreateParkingLot();
-		case PARKING_SERVICE:
+		} else if (inputCommand.contains(PARKING_SERVICE)) {
 			return new ParkingService();
-		case LEAVE_SERVICE:
+		} else if (inputCommand.contains(LEAVE_SERVICE)) {
 			return new LeaveService();
-		case PARKING_LOT_STATUS:
+		} else if (inputCommand.contains(PARKING_LOT_STATUS)) {
 			return new LotStatusService();
-		case REGISTRATION_NUMBERS_WITH_CARS_WITHOUT_COLOR:
+		} else if (inputCommand.contains(REGISTRATION_NUMBERS_WITH_CARS_WITHOUT_COLOR)) {
 			return new RegNumForCarWithColours();
-		case SLOT_NUMBERS_FOR_CARS_WITH_COLOR:
+		} else if (inputCommand.contains(SLOT_NUMBERS_FOR_CARS_WITH_COLOR)) {
 			return new SlotNumForCarWithColours();
-		case SLOT_NUMBERS_FOR_REGISTRATION_NUMBER:
+		} else if (inputCommand.contains(SLOT_NUMBERS_FOR_REGISTRATION_NUMBER)) {
 			return new SlotNumForCarWithRegNum();
-		default:
+		} else {
+			LOGGER.info("Command not found : " + inputCommand);
 			throw new NotFoundException(COMMAND_NOT_FOUND);
 		}
 
