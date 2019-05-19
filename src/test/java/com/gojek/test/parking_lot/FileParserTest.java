@@ -41,11 +41,6 @@ public class FileParserTest {
 	}
 	
 	
-	@Test(expected = InvalidDataException.class)
-	public void testNoParKingLotFileParsing() throws NotFoundException, InternalServerException {
-		new FileParser("./src/test/resources/file_inputs_without_creating_parking_lot.txt");
-	}
-	
 	@Test
 	public void testValidFileParsing() throws NotFoundException, InternalServerException {
 		new FileParser("./src/test/resources/valid_input.txt");

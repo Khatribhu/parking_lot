@@ -22,7 +22,7 @@ public class ParkingService extends ParkingLotConfigService {
 	@Override
 	public void executeCommand(String[] commandArray) throws InternalServerException {
 		try {
-			if (!parking_lot.isEmpty() || parking_lot != null || size_alloted != 0) {
+			if(!parking_lot.isEmpty() || parking_lot != null) {
 				Car car = new Car(commandArray[1], commandArray[2]);
 				List<Integer> totalPlacesLeft = places_left;
 				if (totalPlacesLeft.isEmpty()) {
