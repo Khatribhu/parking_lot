@@ -1,16 +1,16 @@
-package com.gojek.test.parking_lot.Exception;
+package com.gojek.parking_lot.Exception;
 
 /**
  * @author Khatribhu
  *
  */
-public class InternalServerException extends Exception {
+public class NotFoundException extends Exception {
 
 	/**
 	 * Constructs a new exception with the detailed message
 	 * @param message
 	 */
-	public InternalServerException(String message) {
+	public NotFoundException(String message) {
 		super(message);
 	}
 	
@@ -18,7 +18,7 @@ public class InternalServerException extends Exception {
 	 * Constructs a new exception with the cause of the exception
 	 * @param cause
 	 */
-	public InternalServerException(Throwable cause) {
+	public NotFoundException(Throwable cause) {
 		super(cause);
 	}
 
@@ -27,7 +27,7 @@ public class InternalServerException extends Exception {
 	 * @param message
 	 * @param cause
 	 */
-	public InternalServerException(String message, Throwable cause) {
+	public NotFoundException(String message, Throwable cause) {
 		super(message, cause);
 	}
 }

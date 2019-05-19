@@ -1,8 +1,8 @@
-package com.gojek.test.parking_lot;
+package com.gojek.parking_lot;
 
-import com.gojek.test.parking_lot.Exception.InternalServerException;
-import com.gojek.test.parking_lot.Exception.NotFoundException;
-import com.gojek.test.parking_lot.InputProcesser.InputArgumentConfigFactory;
+import com.gojek.parking_lot.Exception.InternalServerException;
+import com.gojek.parking_lot.Exception.NotFoundException;
+import com.gojek.parking_lot.InputProcesser.InputArgumentConfigFactory;
 
 /**
  * 

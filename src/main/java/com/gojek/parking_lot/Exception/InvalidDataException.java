@@ -1,4 +1,4 @@
-package com.gojek.test.parking_lot.Exception;
+package com.gojek.parking_lot.Exception;
 
 /**
  * All invalid api request exceptions wrapped here

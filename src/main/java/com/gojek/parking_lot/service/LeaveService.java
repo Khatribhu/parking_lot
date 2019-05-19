@@ -1,10 +1,10 @@
-package com.gojek.test.parking_lot.service;
+package com.gojek.parking_lot.service;
 
 import java.util.Collections;
 import java.util.List;
 
-import com.gojek.test.parking_lot.Exception.InternalServerException;
-import com.gojek.test.parking_lot.InputProcesser.ParkingLotConfigService;
+import com.gojek.parking_lot.Exception.InternalServerException;
+import com.gojek.parking_lot.InputProcesser.ParkingLotConfigService;
 
 /**
  * 

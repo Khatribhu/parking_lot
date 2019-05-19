@@ -1,11 +1,11 @@
-package com.gojek.test.parking_lot.InputProcesser;
+package com.gojek.parking_lot.InputProcesser;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.gojek.test.parking_lot.Exception.InternalServerException;
-import com.gojek.test.parking_lot.models.Car;
+import com.gojek.parking_lot.Exception.InternalServerException;
+import com.gojek.parking_lot.models.Car;
 
 /**
  * 

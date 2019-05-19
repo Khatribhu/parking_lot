@@ -1,4 +1,4 @@
-package com.gojek.test.parking_lot.models;
+package com.gojek.parking_lot.models;
 
 import lombok.Getter;
 import lombok.Setter;

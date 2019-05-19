@@ -1,10 +1,10 @@
-package com.gojek.test.parking_lot.service;
+package com.gojek.parking_lot.service;
 
 
-import com.gojek.test.parking_lot.Exception.InternalServerException;
-import com.gojek.test.parking_lot.Exception.InvalidDataException;
-import com.gojek.test.parking_lot.InputProcesser.ParkingLotConfigService;
-import com.gojek.test.parking_lot.models.Car;
+import com.gojek.parking_lot.Exception.InternalServerException;
+import com.gojek.parking_lot.Exception.InvalidDataException;
+import com.gojek.parking_lot.InputProcesser.ParkingLotConfigService;
+import com.gojek.parking_lot.models.Car;
 
 /**
  * 

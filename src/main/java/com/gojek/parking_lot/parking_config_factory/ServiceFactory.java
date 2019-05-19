@@ -1,14 +1,14 @@
-package com.gojek.test.parking_lot.parking_config_factory;
+package com.gojek.parking_lot.parking_config_factory;
 
-import com.gojek.test.parking_lot.Exception.NotFoundException;
-import com.gojek.test.parking_lot.InputProcesser.ParkingLotConfigService;
-import com.gojek.test.parking_lot.service.CreateParkingLot;
-import com.gojek.test.parking_lot.service.LeaveService;
-import com.gojek.test.parking_lot.service.LotStatusService;
-import com.gojek.test.parking_lot.service.ParkingService;
-import com.gojek.test.parking_lot.service.RegNumForCarWithColours;
-import com.gojek.test.parking_lot.service.SlotNumForCarWithColours;
-import com.gojek.test.parking_lot.service.SlotNumForCarWithRegNum;
+import com.gojek.parking_lot.Exception.NotFoundException;
+import com.gojek.parking_lot.InputProcesser.ParkingLotConfigService;
+import com.gojek.parking_lot.service.CreateParkingLot;
+import com.gojek.parking_lot.service.LeaveService;
+import com.gojek.parking_lot.service.LotStatusService;
+import com.gojek.parking_lot.service.ParkingService;
+import com.gojek.parking_lot.service.RegNumForCarWithColours;
+import com.gojek.parking_lot.service.SlotNumForCarWithColours;
+import com.gojek.parking_lot.service.SlotNumForCarWithRegNum;
 
 /**
  * 

@@ -3,13 +3,13 @@ package com.gojek.test.parking_lot;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.gojek.test.parking_lot.Exception.NotFoundException;
-import com.gojek.test.parking_lot.parking_config_factory.ServiceFactory;
-import com.gojek.test.parking_lot.service.CreateParkingLot;
-import com.gojek.test.parking_lot.service.LeaveService;
-import com.gojek.test.parking_lot.service.LotStatusService;
-import com.gojek.test.parking_lot.service.ParkingService;
-import com.gojek.test.parking_lot.service.RegNumForCarWithColours;
+import com.gojek.parking_lot.Exception.NotFoundException;
+import com.gojek.parking_lot.parking_config_factory.ServiceFactory;
+import com.gojek.parking_lot.service.CreateParkingLot;
+import com.gojek.parking_lot.service.LeaveService;
+import com.gojek.parking_lot.service.LotStatusService;
+import com.gojek.parking_lot.service.ParkingService;
+import com.gojek.parking_lot.service.RegNumForCarWithColours;
 
 /**
  * 

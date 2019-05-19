@@ -1,32 +1,32 @@
-package com.gojek.test.parking_lot.service;
+package com.gojek.parking_lot.service;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map.Entry;
 
-import com.gojek.test.parking_lot.Exception.InternalServerException;
-import com.gojek.test.parking_lot.Exception.NotFoundException;
-import com.gojek.test.parking_lot.InputProcesser.ParkingLotConfigService;
-import com.gojek.test.parking_lot.models.Car;
+import com.gojek.parking_lot.Exception.InternalServerException;
+import com.gojek.parking_lot.Exception.NotFoundException;
+import com.gojek.parking_lot.InputProcesser.ParkingLotConfigService;
+import com.gojek.parking_lot.models.Car;
 
 /**
  * 
  * @author Khatribhu
  *
  */
-public class SlotNumForCarWithRegNum extends ParkingLotConfigService {
+public class SlotNumForCarWithColours extends ParkingLotConfigService {
 
 	@Override
 	public void executeCommand(String[] commandArray) throws InternalServerException {
 		try {
 			if (!parking_lot.isEmpty() || parking_lot != null) {
-				boolean flag = false;
-				String registrationNumber = commandArray[1];
+				String colour = commandArray[1];
+				boolean flag = true;
 				Collection<Car> allCars = parking_lot.values();
 				List<String> slotNum = new ArrayList<>();
 				for (Car car : allCars) {
-					if (car.getRegistrationNumber().equals(registrationNumber)) {
+					if (car.getColour().equals(colour)) {
 						for (Entry<Integer, Car> entry : parking_lot.entrySet()) {
 							if (entry.getValue().equals(car)) {
 								flag = true;

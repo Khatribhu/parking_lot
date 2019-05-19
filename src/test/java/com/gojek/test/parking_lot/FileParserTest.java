@@ -9,9 +9,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.gojek.test.parking_lot.Exception.InternalServerException;
-import com.gojek.test.parking_lot.Exception.NotFoundException;
-import com.gojek.test.parking_lot.InputProcesser.FileParser;
+import com.gojek.parking_lot.Exception.InternalServerException;
+import com.gojek.parking_lot.Exception.NotFoundException;
+import com.gojek.parking_lot.InputProcesser.FileParser;
 
 /**
  * 
