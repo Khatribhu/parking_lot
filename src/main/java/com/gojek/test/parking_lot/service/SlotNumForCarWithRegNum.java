@@ -5,12 +5,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map.Entry;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.gojek.test.parking_lot.Exception.InternalServerException;
 import com.gojek.test.parking_lot.Exception.NotFoundException;
-import com.gojek.test.parking_lot.InputProcesser.InputParserImpl;
 import com.gojek.test.parking_lot.InputProcesser.ParkingLotConfigService;
 import com.gojek.test.parking_lot.models.Car;
 
@@ -20,8 +16,6 @@ import com.gojek.test.parking_lot.models.Car;
  *
  */
 public class SlotNumForCarWithRegNum extends ParkingLotConfigService {
-
-	private static final Logger LOGGER = LoggerFactory.getLogger(InputParserImpl.class);
 
 	@Override
 	public void executeCommand(String[] commandArray) throws InternalServerException {
@@ -43,19 +37,15 @@ public class SlotNumForCarWithRegNum extends ParkingLotConfigService {
 					}
 				}
 				if (flag == false) {
-					LOGGER.info("Not found");
-					System.out.print("Not found");
+					System.out.println("Not found");
 				} else {
-					LOGGER.info(String.join(",", slotNum));
-					System.out.println(String.join(",", slotNum));
+					System.out.println(String.join(", ", slotNum));
 				}
 			} else {
-				LOGGER.error("Parking Lot Not Found. Create one first");
 				throw new NotFoundException("Parking Lot Not Found. Create one first");
 			}
 
 		} catch (Exception e) {
-			LOGGER.info(e.getMessage(), e);
 			throw new InternalServerException(e.getMessage(), e);
 		}
 	}

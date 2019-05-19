@@ -4,9 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.gojek.test.parking_lot.Exception.InternalServerException;
 import com.gojek.test.parking_lot.Exception.NotFoundException;
 import com.gojek.test.parking_lot.parking_config_factory.ServiceFactory;
@@ -18,7 +15,6 @@ import com.gojek.test.parking_lot.parking_config_factory.ServiceFactory;
  */
 public class FileParser {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(FileParser.class);
 	private BufferedReader bufferedReader;
 
 	public FileParser(String string) throws NotFoundException, InternalServerException {

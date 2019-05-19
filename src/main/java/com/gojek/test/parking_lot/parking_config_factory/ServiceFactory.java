@@ -1,8 +1,5 @@
 package com.gojek.test.parking_lot.parking_config_factory;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.gojek.test.parking_lot.Exception.NotFoundException;
 import com.gojek.test.parking_lot.InputProcesser.ParkingLotConfigService;
 import com.gojek.test.parking_lot.service.CreateParkingLot;
@@ -19,8 +16,6 @@ import com.gojek.test.parking_lot.service.SlotNumForCarWithRegNum;
  *
  */
 public class ServiceFactory {
-
-	private static Logger LOGGER = LoggerFactory.getLogger(ServiceFactory.class);
 
 	private static final String CREATE_PARKING_LOT = "create_parking_lot";
 	private static final String PARKING_SERVICE = "park";
@@ -48,7 +43,7 @@ public class ServiceFactory {
 		} else if (inputCommand.contains(SLOT_NUMBERS_FOR_REGISTRATION_NUMBER)) {
 			return new SlotNumForCarWithRegNum();
 		} else {
-			LOGGER.info("Command not found : " + inputCommand);
+			System.out.println("Command not found : " + inputCommand);
 			throw new NotFoundException(COMMAND_NOT_FOUND);
 		}
 

@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.gojek.test.parking_lot.Exception.InternalServerException;
 import com.gojek.test.parking_lot.Exception.NotFoundException;
 import com.gojek.test.parking_lot.InputProcesser.ParkingLotConfigService;
@@ -18,8 +15,6 @@ import com.gojek.test.parking_lot.models.Car;
  *
  */
 public class RegNumForCarWithColours extends ParkingLotConfigService {
-
-	private static final Logger LOGGER = LoggerFactory.getLogger(RegNumForCarWithColours.class);
 
 	@Override
 	public void executeCommand(String[] commandArray) throws InternalServerException {
@@ -36,18 +31,15 @@ public class RegNumForCarWithColours extends ParkingLotConfigService {
 					}
 				}
 				if (flag == false) {
-					LOGGER.info("Not Found");
-					System.out.print("Not Found");
+					System.out.println("Not Found");
 				} else {
-					LOGGER.info(String.join(",", regList));
-					System.out.println(String.join(",", regList));
+					System.out.println(String.join(", ", regList));
 				}
 			} else {
 				throw new NotFoundException("Parking Lot Not Found. Create one first");
 			}
 
 		} catch (Exception e) {
-			LOGGER.info(e.getMessage(), e);
 			throw new InternalServerException(e.getMessage(), e);
 		}
 	}

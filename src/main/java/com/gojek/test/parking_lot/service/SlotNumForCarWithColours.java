@@ -37,9 +37,9 @@ public class SlotNumForCarWithColours extends ParkingLotConfigService {
 					}
 				}
 				if (flag == false) {
-					System.out.print("Not found");
+					System.out.println("Not found");
 				} else {
-					System.out.println(String.join(",", slotNum));
+					System.out.println(String.join(", ", slotNum));
 				}
 			} else {
 				throw new NotFoundException("Parking Lot Not Found. Create one first");
